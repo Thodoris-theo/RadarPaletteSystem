@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="style_doctor.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome, <span id="doctorName">Dr. [Name]</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="viewAppointmentsBtn">View Appointments</a></li>
+                <li><a href="#" id="addAppointmentBtn">Add Appointment</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Appointments Section -->
+        <section id="appointmentsSection" style="display: none;">
+            <h2>Appointments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsTableBody">
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add/Edit Appointment Section -->
+        <section id="addEditAppointmentSection" style="display: none;">
+            <h2>Add/Edit Appointment</h2>
+            <form id="appointmentForm">
+                <label for="patientName">Patient Name:</label>
+                <input type="text" id="patientName" name="patientName" required>
+                <label for="appointmentDate">Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+                <label for="appointmentTime">Time:</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+                <input type="hidden" id="appointmentId" name="appointmentId"> <!-- For Editing -->
+                <button type="submit">Save</button>
+            </form>
+        </section>
+    </main>
+   
+    <script src="scripts/fetch_user_data.js"></script>
+    <script src="scripts/logout.js"></script>
+    <script src="scripts/appointment_create.js"></script>
+    <script src="scripts/appointment_search.js"></script>
+    <script src="scripts/appointment_update.js"></script>
+    <script src="scripts/appointment_cancel.js"></script>
+    <script src="scripts/logout.js"></script>
+    <script src="scripts/generate_options.js"></script>
+    <script src="scripts/search_history.js"></script>
+</body>
+
+</html>

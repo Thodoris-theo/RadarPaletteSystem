@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="styles/patient_dashboard.css">
+</head>
+
+<body>
+    <header>
+        <h1>Appointments</h1>
+        <nav>
+            <ul>
+                <li><a href="#appointment-create" id="manage-appointments-link">Create Appointment</a></li>
+                <li><a href="#appointment-cancel" id="manage-info-link">Cancel Appointment</a></li>
+                <li><a href="#appointment-update" id="manage-update-link">Update Appointment</a></li>
+                <li><a href="#appointment-search" id="view-history-link">View Appointments</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <section id="appointment-create" style="display: none;">
+            <h2>Create New Appointment</h2>
+            <form id="create-form">
+                <label for="patient-name">Patient Name:</label>
+                <input type="text" id="patient-name" name="patient-name" required>
+                <br>
+                <label for="appointment-date">Appointment Date:</label>
+                <input type="datetime-local" id="appointment-date" name="appointment-date" required>
+                <br>
+                <label for="doctor">Doctor:</label>
+                <input type="text" id="doctor" name="doctor" required>
+                <br>
+                <button type="submit">Create Appointment</button>
+            </form>
+            <div id="create-results"></div>
+        </section>
+
+        <section id="appointment-search" style="display: none;">
+            <h2>Search Appointments</h2>
+            <form id="search-form">
+                <label for="date-range">Date Range:</label>
+                <input type="date" id="start-date" name="start-date">
+                <input type="date" id="end-date" name="end-date">
+                <br>
+                <label for="last-name">Patient Last Name:</label>
+                <input type="text" id="last-name" name="last-name">
+                <br>
+                <label for="amka">Patient ID:</label>
+                <input type="text" id="amka" name="amka">
+                <br>
+                <label for="status">Appointment Status:</label>
+                <select id="status" name="status">
+                    <option value="">All</option>
+                    <option value="created">Created</option>
+                    <option value="attended">Attended</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <br>
+                <button type="submit">Search</button>
+            </form>
+            <div id="appointment-results"></div>
+        </section>
+
+        <section id="appointment-update" style="display: none;">
+            <h2>Update Appointment</h2>
+            <form id="update-form">
+                <label for="update-appointment-id">Appointment ID:</label>
+                <input type="text" id="update-appointment-id" name="update-appointment-id" required>
+                <br>
+                <label for="update-appointment-date">New Appointment Date:</label>
+                <input type="datetime-local" id="update-appointment-date" name="update-appointment-date">
+                <br>
+                <label for="update-status">Appointment Status:</label>
+                <select id="update-status" name="update-status">
+                    <option value="created">Created</option>
+                    <option value="attended">Attended</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <br>
+                <button type="submit">Update Appointment</button>
+            </form>
+            <div id="update-results"></div>
+        </section>
+
+        <section id="appointment-cancel" style="display: none;">
+            <h2>Cancel Appointment</h2>
+            <form id="cancelAppointmentForm">
+                <label for="cancel-id">Appointment ID:</label>
+                <input type="text" id="appointmentId" name="appointmentId" required>
+                <br>
+                <button type="submit">Cancel Appointment</button>
+            </form>
+            <div id="cancel-results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+
+    <script src="scripts/appointment_create.js"></script>
+    <script src="scripts/appointment_search.js"></script>
+    <script src="scripts/appointment_update.js"></script>
+    <script src="scripts/appointment_cancel.js"></script>
+    <script src="scripts/logout.js"></script>
+</body>
+
+</html>

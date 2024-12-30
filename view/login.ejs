@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style_login.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="/" class="btn-home">Welcome to Our Clinic</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="/index">Register</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="loginForm" action="/login" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <div id="errorDiv" class="error-message" style="display: none;"></div>
+            <!-- Error message container -->
+            <input type="submit" value="Login">
+        </form>
+    </main>
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            // Clear any previous error messages
+            const errorDiv = document.getElementById("errorDiv");
+            errorDiv.textContent = '';
+            errorDiv.style.display = "none";
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || "Invalid username or password");
+                } else {
+                    const data = await response.json();
+                    window.location.href = data.redirectUrl;
+                }
+
+            } catch (error) {
+                console.error("Error:", error.message);
+                errorDiv.textContent = error.message;
+                errorDiv.style.display = "block";
+                document.getElementById("password").value = ""; 
+            }
+        });
+    </script>
+</body>
+
+</html>

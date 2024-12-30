@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="patient_dash.css">
+</head>
+
+<body>
+    <header>
+        <h1>Patient Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/patient_appointment">Manage Appointments</a></li>
+                <li><a href="/patient_history" id="view-history-link">View/Search History</a></li>
+                <li><a href="#manage-info">Clinic Information</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <section>
+            <h2>User Information</h2>
+            <div id="userData">
+            </div>
+        </section>
+
+        <section id="manage-info">
+            <h2>General Clinic Information</h2>
+            <p><strong>Clinic Name:</strong> Health Clinic</p>
+            <p><strong>Address:</strong> Paradise 123, City, Postal Code 12345</p>
+            <p><strong>Phone:</strong> 1234567890</p>
+            <p><strong>Operating Hours:</strong> Monday - Friday, 8 AM - 5 PM</p>
+            <p><strong>Services:</strong> General Medicine, Blood Tests, Preventive Care</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Patient Dashboard</p>
+    </footer>
+
+    <script src="scripts/fetch_user_data.js"></script>
+    <script src="scripts/logout.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment History</title>
+    <link rel="stylesheet" href="patient_dash.css">
+</head>
+
+<body>
+    <header>
+        <h1>Appointment History</h1>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+
+    <main>
+        <section>
+            <label for="startDate">Start Date:</label>
+            <select id="startDate">
+            </select><br><br>
+
+            <label for="endDate">End Date:</label>
+            <select id="endDate">
+            </select><br><br>
+
+            <label for="healthIssue">Health Issue:</label>
+            <select id="healthIssue">
+            </select><br><br>
+
+            <button type="button" onclick="searchHistory()">Search</button>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+            <div id="results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+
+    <script src="scripts/generate_options.js"></script>
+    <script src="scripts/search_history.js"></script>
+    <script src="scripts/logout.js"></script>
+</body>
+
+</html>
